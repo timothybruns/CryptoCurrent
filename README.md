@@ -1,10 +1,10 @@
-## Project 3 Crypto Blog
+# Project 3 Crypto Blog
 
-# Wireframes
+## Wireframes
 
 * See assets/ in repo 
 
-# Team Guidelines
+## Team Guidelines
 
 * Fix your errors before pushing up 
 * Divide the features out among us evenly, trying to work to one another's strengths
@@ -23,7 +23,7 @@
 
 ========================================
 
-# Brainstorm/Initial Thoughts
+## Brainstorm/Initial Thoughts
 
 * A public blog/social hub that displays blog posts created by users
 * Homepage contains a ticker of most current spot prices of most popular coins
@@ -34,11 +34,11 @@
 * Serve as a place to check what is current/trending in the crypto world
 * Use API() to get pricing data, which we have tested in Postman
 
-# Why Build This?
+## Why Build This?
     
 * Cryptocurrecies have become the hottest trend around, as vast fortunes are being made almost overnight by people young and old who have gotten in early to this modern-day gold rush. While someone has undoubtedly mentioned bitcoin or blockchain technoology to you, these subjects are not so easily understood. The information about these technologies is scattered, inconsistent, and complicated. As cryptocurrency enthusiasts with both personal and professional experience in this world, we seek to crack the code on this issue with our Crypto Blog.
 
-# Challenges
+## Initial Challenges
 
 * Git branching - there's no getting around this challenge. Issues are sure to arise and will be our biggest threat to meeting deadlines.
 
@@ -47,6 +47,7 @@
 * React Router - if we decide to use React Router, this could be challenging to build and debug as we have virtually no hands-on experience as of now.
 
 * CRUD - our react/express CRUD homework was a challenge - implementing this correctly on the backend and having it work on the React front-end is likely the most important feature of the project.
+
 
 
 
