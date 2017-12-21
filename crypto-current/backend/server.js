@@ -43,20 +43,14 @@ app.get('/', (req, res) => {
   res.send('Hello World! Our group is AWESOME!');
 });
 
+
 // catching illegal routes
-app.use('*', (req,res) => {
+app.use('*', (req, res) => {
   res.status(400).json({
     message: 'Opps, not good!',
   });
 });
 
-app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).json({
-    error: err,
-    message: err.message,
-  });
-});
 
 // setup localhost POST based on env or 3000
 const PORT = process.env.PORT || 3000;
