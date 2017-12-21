@@ -1,13 +1,10 @@
 const db = require('../dbConfig/config');
 
-const blog = {};
+const blogs = {};
 
-blog.findAll = () => {
+blogs.findAll = () => {
   return db.many(`
     SELECT * FROM blogs
-    INNER JOIN users
-    ON users.id = blogs.user_id
-    ORDER BY blogs.id
     `);
 }
 
@@ -27,3 +24,4 @@ blog.findAll = () => {
 //     `, blog);
 // }
 
+module.exports = blogs;
