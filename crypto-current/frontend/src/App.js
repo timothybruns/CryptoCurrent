@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -18,8 +17,9 @@ class App extends Component {
    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=5')
      .then(res => res.json())
      .then(res => {
+      console.log(res)
        this.setState({
-        tickerList: res.data,
+        tickerList: res,
         apiDataLoaded: true
        })
      }).catch(err => console.log(err))
@@ -30,22 +30,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <h1> This is the header. </h1>
-        <Header />
-        <Body />
-        <Footer />
-
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-         
-        </p>
-
-      </div>
+      <Header />
+      <Footer />
+        {this.state.apiDataLoaded ? (
+         <div>
+           <Body tickerList={this.state.tickerList}/>
+           </div>
+          ) : (
+            <p className="loading"> Loading...</p>
+          )}
+         </div> 
     );
   }
 }
