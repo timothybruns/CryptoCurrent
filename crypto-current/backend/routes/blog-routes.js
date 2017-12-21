@@ -5,13 +5,13 @@ const blogsRoutes = express.Router();
 const blogsController = require('../controllers/blogs-controller');
 
 // setup blog routes
-// blogsRoutes.route('/:id')
-//            .get(blogsController.show)
+blogsRoutes.route('/:id')
+           .get(blogsController.show)
 //            .put(blogsController.update)
 //            .delete(blogsController.delete);
 
-// blogsRoutes.route('/')
-//            .get(blogsController.index)
+blogsRoutes.route('/')
+           .get(blogsController.index)
 //            .post(blogsController.create);
 
 module.exports = blogsRoutes;
