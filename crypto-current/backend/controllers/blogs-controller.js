@@ -12,14 +12,5 @@ module.exports = {
       .catch(err => next(err));
   },
 
-  getOne(req, res, next) {
-    blogsDB.findOne(req.params.id)
-      .then((post) => {
-        res.locals.post = post;
-        next();
-      })
-      .catch(err => next(err));
-  },
-
 
 };
