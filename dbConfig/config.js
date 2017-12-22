@@ -6,16 +6,15 @@ const options = {
 
 const pgp = require('pg-promise')(options);
 
+const config = {
+  host:     process.env.DB_HOST,
+  port:     process.env.DB_PORT,
+  database: process.env.DB_NAME,
+  user:     process.env.DB_USER,
+};
+
 function setDatabase() {
-  if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
-    return pgp({
-      host: 'localhost',
-      database: 'crypto_blog_dev',
-      port: 3000,
-    });
-  } else if (process.env.NODE_ENV === 'production') {
-    return pgp(process.env.DATABASE_URL);
-  }
+  return pgp(process.env.DATABASE_URL || config);
 }
 
 const db = setDatabase();
