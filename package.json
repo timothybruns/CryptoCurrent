@@ -16,7 +16,9 @@
     "rebuild": "webpack -d --progress",
     "build": "webpack -p",
     "watch": "webpack -d --progress --watch",
-    "clean": "rm -rf dist && rm -rf node_modules"
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "heroku-prebuild": "bash scripts/deployment_react.sh",
+    "heroku-postbuild": "bash scripts/deployment_cleanup.sh"
   },
   "keywords": [],
   "author": "",
