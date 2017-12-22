@@ -2,7 +2,7 @@
 
 DROP TABLE IF EXISTS blogs;
 DROP TABLE IF EXISTS users;
--- DROP TABLE IF EXISTS comments;
+
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -19,11 +19,5 @@ CREATE TABLE blogs (
 
 
 
--- CREATE TABLE comments (
---   id SERIAL PRIMARY KEY,
---   content VARCHAR(255),
---   user_id REFERENCES users(id);
---   blog_id REFERENCES blogs(id)
 
--- );
 

@@ -5,7 +5,7 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const blogroute = require('./routes/blog-routes.js');
+const blogroutes = require('./routes/blog-routes.js');
 
 // setup localhost POST based on env or 3001
 const PORT = process.env.PORT || 3001;
@@ -22,7 +22,7 @@ app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../frontend/public')));
 
 // modules for authentication, commented out in meantime.
 // app.use(cookieParser());
@@ -39,11 +39,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static('public'));
 
 // setup route for all blogs
-app.use('/api/blogs', blogroute);
+app.use('/api/blogs', blogroutes);
+
+// setup server root folder
+app.get('/api/index', (req, res) => {
+  res.render('index');
+});
 
 // setup server root folder
 app.get('/api/test', (req, res) => {
-  res.json('Hello World! Our group is AWESOME!');
+  res.json({
+    message: 'Hello World! Our group is AWESOME!',
+  });
 });
 
 

@@ -1,31 +1,16 @@
 const pgp = require('pg-promise')();
-const dbConfig = require('../dbConfig/config');
+const config = require('../dbConfig/config');
 
-const db = pgp(dbConfig);
+const db = pgp(config);
 
 
 module.exports = {
 
   findAll() {
+    console.log("inside blogsDB", db)
     return db.many(`
       SELECT * FROM blogs
       `);
   },
-
-// blog.findById = (id) => {
-//   return db.one(`
-//     SELECT * FROM blog
-//     WHERE id = $1
-//     `, [id]);
-// }
-
-// blog.create = (blog) => {
-//   return db.one(`
-//     INSERT INTO blog
-//     (title, post, user_id)
-//     VALUES ($/title/, $/post/, $/user_id/)
-//     RETURNING *
-//     `, blog);
-// }
 
 };
