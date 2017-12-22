@@ -42,7 +42,7 @@ INSERT INTO blogs(title, content, user_id)
     4
   );
 
-INSERT INTO tags (name, blog_id)
+INSERT INTO tags (tagname, blog_id)
   VALUES
   (
     'tag1',

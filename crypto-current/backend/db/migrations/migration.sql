@@ -22,7 +22,7 @@ CREATE TABLE blogs (
 
 CREATE TABLE tags (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
+  tagname VARCHAR(50) NOT NULL,
   blog_id INT REFERENCES blogs(id)
 );
 

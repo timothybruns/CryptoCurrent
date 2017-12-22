@@ -13,7 +13,21 @@ module.exports = {
           },
         });
       })
-      .catch(next);
+      .catch(err => next(err));
   },
+
+  getOne(req, res, next) {
+    blogsDB.findOne(req.params.id)
+      .then((blog) => {
+        res.status(200).json({
+          message: 'ok',
+          data: {
+            blog,
+          },
+        });
+      })
+      .catch(err => next(err));
+  },
+
 
 };
