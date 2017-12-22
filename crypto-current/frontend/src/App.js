@@ -30,10 +30,11 @@ class App extends Component {
     return (
       <div className="App">
       <Header />
-      <Footer />
+      
         {this.state.apiDataLoaded ? (
          <div>
            <Body tickerList={this.state.tickerList}/>
+           <Footer />
            </div>
           ) : (
             <p className="loading"> Loading...</p>

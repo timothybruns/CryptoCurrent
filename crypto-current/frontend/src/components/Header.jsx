@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.js';
 
 const Header  = props => {
 	return (
