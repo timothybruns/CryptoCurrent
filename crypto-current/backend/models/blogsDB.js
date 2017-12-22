@@ -1,12 +1,16 @@
-const db = require('../dbConfig/config');
+const pgp = require('pg-promise')();
+const dbConfig = require('../dbConfig/config');
 
-const blogs = {};
+const db = pgp(dbConfig);
 
-blogs.findAll = () => {
-  return db.many(`
-    SELECT * FROM blogs
-    `);
-}
+
+module.exports = {
+
+  findAll() {
+    return db.many(`
+      SELECT * FROM blogs
+      `);
+  },
 
 // blog.findById = (id) => {
 //   return db.one(`
@@ -24,4 +28,4 @@ blogs.findAll = () => {
 //     `, blog);
 // }
 
-module.exports = blogs;
+};
