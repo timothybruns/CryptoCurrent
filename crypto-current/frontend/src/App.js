@@ -9,7 +9,8 @@ class App extends Component {
     super()
     this.state = {
       tickerList: null,
-      apiDataLoaded: false
+      apiDataLoaded: false,
+      backendcall: null,
     }
   }
 
@@ -25,8 +26,6 @@ class App extends Component {
      }).catch(err => console.log(err))
  }
 
-
-
   render() {
     return (
       <div className="App">
@@ -39,7 +38,7 @@ class App extends Component {
           ) : (
             <p className="loading"> Loading...</p>
           )}
-         </div> 
+         </div>
     );
   }
 }
