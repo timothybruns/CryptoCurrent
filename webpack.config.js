@@ -20,8 +20,8 @@ if (!('NODE_ENV' in process.env)) require('dotenv').config();
 
 const config = {
   entry: {
-    main:   `${APP_DIR}/main.jsx`,
-    vendor: ['axios', 'react', 'react-dom', 'prop-types'],
+    main:   `${APP_DIR}/index.js`,
+    vendor: ['react', 'react-dom', 'prop-types'],
   },
   output: {
     path:     BUILD_DIR,
@@ -50,7 +50,7 @@ const config = {
       },
     }),
     new HtmlWebpackPlugin({
-      title:      'React Skeleton',
+      title:      'Crypto Current',
       xhtml:      true,
       inject:     false,
       template:   htmlTemplate,

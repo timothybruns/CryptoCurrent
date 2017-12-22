@@ -19,7 +19,8 @@ app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // modules for authentication, commented out in meantime.
 // app.use(cookieParser());
@@ -36,12 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static('public'));
 
 // setup route for all blogs
+// todo:
 app.use('/blogs', blogroute);
 
-// setup server root folder
-app.get('/', (req, res) => {
-  res.json('Hello World! Our group is AWESOME!');
-});
 
 
 // catching illegal routes
@@ -52,7 +50,7 @@ app.use('*', (req, res) => {
 });
 
 
-// setup localhost POST based on env or 3001
+// setup localhost POST based on env or 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
