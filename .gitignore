@@ -38,6 +38,8 @@ node_modules
 # distribution files
 dist
 
+package-lock.json
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
