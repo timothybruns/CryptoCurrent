@@ -42,7 +42,9 @@ const config = {
     }),
     new CleanWebpackPlugin(['dist']),
     new webpack.LoaderOptionsPlugin({
-      debug: true,
+      options: {
+        debug: true,
+      },
     }),
     new webpack.DefinePlugin({
       'process.env': {
