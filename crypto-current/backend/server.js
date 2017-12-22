@@ -41,19 +41,6 @@ app.use(express.static(path.join(__dirname, '../frontend/public')));
 // setup route for all blogs
 app.use('/api/blogs', blogroutes);
 
-// setup server root folder
-app.get('/api/index', (req, res) => {
-  res.render('index');
-});
-
-// setup server root folder
-app.get('/api/test', (req, res) => {
-  res.json({
-    message: 'Hello World! Our group is AWESOME!',
-  });
-});
-
-
 // catching illegal routes
 app.use('*', (req, res) => {
   res.status(400).json({

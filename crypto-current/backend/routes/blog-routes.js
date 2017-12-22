@@ -7,8 +7,7 @@ const blogController = require('../controllers/blogcontroller');
 
 // setup blog routes
 
-blogsRoutes.route('/test')
-           .get(blogController.test);
+
 
 blogsRoutes.route('/')
            .get(blogController.index);

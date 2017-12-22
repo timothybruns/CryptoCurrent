@@ -16,10 +16,4 @@ module.exports = {
       .catch(next);
   },
 
-  test(req, res, next) {
-    res.json({
-    message: 'Inside blog controller test route',
-  });
-  },
-
 };

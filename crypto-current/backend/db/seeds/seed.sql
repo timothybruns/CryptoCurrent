@@ -19,8 +19,7 @@ INSERT INTO users(username, password)
     'jonpw'
   );
 
-
-INSERT INTO blogs(title,post,user_id)
+INSERT INTO blogs(title, content, user_id)
   VALUES
   (
     'You want Crypto?',
@@ -42,4 +41,47 @@ INSERT INTO blogs(title,post,user_id)
     'Ask me',
     4
   );
+
+INSERT INTO tags (name, blog_id)
+  VALUES
+  (
+    'tag1',
+    1
+  ),
+  (
+    'tag2',
+    2
+  ),
+  (
+    'tag3',
+    3
+  ),
+  (
+    'tag4',
+    4
+  );
+
+INSERT INTO comments (comment, blog_id)
+  VALUES
+  (
+    'comment1',
+    1
+  ),
+  (
+    'comment2',
+    1
+  ),
+  (
+    'comment3',
+    2
+  ),
+  (
+    'comment4',
+    3
+  );
+
+
+
+
+
 
