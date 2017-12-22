@@ -1,27 +1,30 @@
-const db = require('../dbConfig/config');
+const pgp = require('pg-promise')();
+const config = require('../dbConfig/config');
 
-const blogs = {};
+const db = pgp(config);
 
-blogs.findAll = () => {
-  return db.many(`
-    SELECT * FROM blogs
-    `);
-}
 
-// blog.findById = (id) => {
-//   return db.one(`
-//     SELECT * FROM blog
-//     WHERE id = $1
-//     `, [id]);
-// }
+module.exports = {
 
-// blog.create = (blog) => {
-//   return db.one(`
-//     INSERT INTO blog
-//     (title, post, user_id)
-//     VALUES ($/title/, $/post/, $/user_id/)
-//     RETURNING *
-//     `, blog);
-// }
+  findAll() {
+    return db.many(`
+      SELECT *
+      FROM blogs
+      JOIN users ON users.id = blogs.user_id
+      JOIN tags ON tags.blog_id = blogs.id
+      `);
+  },
 
-module.exports = blogs;
+// the result will be an array of objects consisting of same blog information, but all the comments.
+  findOne(id) {
+    return db.many(`
+      SELECT *
+      FROM blogs
+      JOIN users ON users.id = blogs.user_id
+      JOIN tags ON tags.blog_id = blogs.id
+      JOIN comments ON comments.blog_id = blogs.id
+      WHERE blogs.id = $1
+      `, id);
+  },
+
+};

@@ -3,14 +3,15 @@ const express = require('express');
 const blogsRoutes = express.Router();
 
 // importing controllers
-const blogsController = require('../controllers/blogs-controller');
+const blogController = require('../controllers/blogcontroller');
 
 // setup blog routes
 
+blogsRoutes.route('/:id')
+  .get(blogController.getOne);
+
 blogsRoutes.route('/')
-           .get(blogsController.index);
-
-
+  .get(blogController.index);
 
 
 module.exports = blogsRoutes;

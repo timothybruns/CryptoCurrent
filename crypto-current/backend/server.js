@@ -5,7 +5,10 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const blogroute = require('./routes/blog-routes.js');
+const blogroutes = require('./routes/blog-routes.js');
+
+// setup localhost POST based on env or 3001
+const PORT = process.env.PORT || 3001;
 
 // set express up
 const app = express();
@@ -18,8 +21,8 @@ const app = express();
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, '../frontend/public')));
 
 // modules for authentication, commented out in meantime.
 // app.use(cookieParser());
@@ -36,13 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static('public'));
 
 // setup route for all blogs
-app.use('/blogs', blogroute);
-
-// setup server root folder
-app.get('/', (req, res) => {
-  res.json('Hello World! Our group is AWESOME!');
-});
-
+app.use('/api/blogs', blogroutes);
 
 // catching illegal routes
 app.use('*', (req, res) => {
@@ -51,9 +48,6 @@ app.use('*', (req, res) => {
   });
 });
 
-
-// setup localhost POST based on env or 3001
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
