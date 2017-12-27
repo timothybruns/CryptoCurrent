@@ -5,6 +5,7 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const favicon = require('serve-favicon');
 const blogroutes = require('./routes/blogroutes.js');
 
 // setup localhost POST based on env or 3000
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // modules for authentication, commented out in meantime.
 // app.use(cookieParser());
