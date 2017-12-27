@@ -15,7 +15,9 @@ module.exports = {
       `);
   },
 
-// the result will be an array of objects consisting of same blog information, but all the comments.
+  /* the result will be an array of objects consisting of same blog information
+  but all the comments.
+  */
   findOne(id) {
     return db.many(`
       SELECT *

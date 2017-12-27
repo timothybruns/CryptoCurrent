@@ -5,9 +5,9 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const blogroutes = require('./routes/blog-routes.js');
+const blogroutes = require('./routes/blogroutes.js');
 
-// setup localhost POST based on env or 3001
+// setup localhost POST based on env or 3000
 const PORT = process.env.PORT || 3000;
 
 // set express up
