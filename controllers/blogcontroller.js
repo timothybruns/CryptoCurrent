@@ -29,5 +29,25 @@ module.exports = {
       .catch(err => next(err));
   },
 
+  blogUpdate(req, res, next) {
+    blogsDB.findOne(req.params.id)
+      .then((blog) => {
+        return blog.blogUpdate({
+          title:   req.body.title,
+          content: req.body.content,
+          user_id: req.body.user_id,
+        });
+      })
+      .then((blog) => {
+        res.status(202).json({
+          message: 'Updated Blog',
+          data: {
+            blog,
+          },
+        });
+      })
+      .catch(err => next(err));
+  },
+
 };
 

@@ -5,6 +5,8 @@ const logger = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+
+// require npm serve-favicon
 const favicon = require('serve-favicon');
 const blogroutes = require('./routes/blogroutes.js');
 
@@ -23,9 +25,11 @@ app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'dist')));
+
+// set favicon path location
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // modules for authentication, commented out in meantime.

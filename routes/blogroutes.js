@@ -12,6 +12,6 @@ blogsRoutes.route('/:id')
 
 blogsRoutes.route('/')
   .get(blogController.index);
-
+  .put(blogController.update);
 
 module.exports = blogsRoutes;

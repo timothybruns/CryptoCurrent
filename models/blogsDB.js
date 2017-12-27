@@ -26,4 +26,15 @@ module.exports = {
       `, id);
   },
 
+  blogUpdate(blog) {
+    return db.one(`
+      UPDATE blogs
+      SET
+      title = $/title/,
+      content = $/content/
+      WHERE id = $/id/
+      RETURNING *
+    `, blog);
+  },
+
 };
