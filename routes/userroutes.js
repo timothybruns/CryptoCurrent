@@ -2,18 +2,16 @@ const express = require('express');
 
 const userRoutes = express.Router();
 
-// importing controllers
+// importing controller
 const userController = require('../controllers/usercontroller');
 
-// setup blog routes
+// setup user routes
 
 userRoutes.route('/:id')
-  .get(userController.getOne)
-  .put(userController.blogUpdate)
-  .delete(userController.blogDelete);
+  .get(userController.getOne);
+
 
 userRoutes.route('/')
-  .get(userController.index)
-  .post(userController.userCreate);
+  .get(userController.index);
 
 module.exports = userRoutes;
