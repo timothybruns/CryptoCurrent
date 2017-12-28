@@ -69,7 +69,7 @@ INSERT INTO comments (comment, blog_id)
   ),
   (
     'comment2',
-    1
+    2
   ),
   (
     'comment3',
