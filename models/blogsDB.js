@@ -1,7 +1,4 @@
-const pgp = require('pg-promise')();
-const config = require('../dbConfig/config');
-
-const db = pgp(config);
+const db = require('../dbConfig/config');
 
 
 module.exports = {
@@ -15,7 +12,9 @@ module.exports = {
       `);
   },
 
-// the result will be an array of objects consisting of same blog information, but all the comments.
+  /* the result will be an array of objects consisting of same blog information
+  but all the comments.
+  */
   findOne(id) {
     return db.many(`
       SELECT *
@@ -25,6 +24,25 @@ module.exports = {
       JOIN comments ON comments.blog_id = blogs.id
       WHERE blogs.id = $1
       `, id);
+  },
+
+  blogUpdate(blog) {
+    return db.one(`
+      UPDATE blogs
+      SET
+      title = $/title/,
+      content = $/content/
+      WHERE id = $/id/
+      RETURNING *
+    `, blog);
+  },
+
+  destroy(id) {
+    return db.none(`
+      DELETE
+      FROM blogs
+      WHERE id = $1
+    `, id);
   },
 
 };

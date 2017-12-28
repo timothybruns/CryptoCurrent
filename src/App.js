@@ -23,14 +23,15 @@ class App extends Component {
         tickerList: res,
         apiDataLoaded: true
        })
-     }).catch(err => console.log(err))
+     })
+     .catch(err => console.log(err))
  }
 
   render() {
     return (
       <div className="App">
       <Header />
-      
+
         {this.state.apiDataLoaded ? (
          <div>
            <Body tickerList={this.state.tickerList}/>

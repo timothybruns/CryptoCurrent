@@ -8,10 +8,12 @@ const blogController = require('../controllers/blogcontroller');
 // setup blog routes
 
 blogsRoutes.route('/:id')
-  .get(blogController.getOne);
+  .get(blogController.getOne)
+  .put(blogController.blogUpdate)
+  .delete(blogController.blogDelete);
 
 blogsRoutes.route('/')
   .get(blogController.index);
-
+  // .post(blogController.create);
 
 module.exports = blogsRoutes;
