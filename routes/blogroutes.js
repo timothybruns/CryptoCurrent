@@ -13,7 +13,7 @@ blogsRoutes.route('/:id')
   .delete(blogController.blogDelete);
 
 blogsRoutes.route('/')
-  .get(blogController.index);
-  // .post(blogController.create);
+  .get(blogController.index)
+  .post(blogController.blogCreate);
 
 module.exports = blogsRoutes;

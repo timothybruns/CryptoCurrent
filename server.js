@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 // require npm serve-favicon
 const favicon = require('serve-favicon');
 const blogroutes = require('./routes/blogroutes.js');
+const userroutes = require('./routes/userroutes.js');
 
 // setup localhost POST based on env or 3000
 const PORT = process.env.PORT || 3000;
@@ -49,6 +50,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 // setup route for all blogs
 
 app.use('/api/blogs', blogroutes);
+app.user('/api/users', userroutes);
 
 // catching illegal routes
 app.use('*', (req, res) => {

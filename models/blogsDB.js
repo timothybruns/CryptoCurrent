@@ -45,4 +45,13 @@ module.exports = {
     `, id);
   },
 
+  save(blog) {
+    return db.one(`
+      INSERT INTO blogs
+      (title, content, user_id)
+      VALUES ($/title/, $/content/, $/user_id/)
+      RETURNING *
+      `, blog);
+  },
+
 };

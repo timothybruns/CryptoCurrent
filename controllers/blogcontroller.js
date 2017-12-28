@@ -59,5 +59,15 @@ module.exports = {
       .catch(err => next(err));
   },
 
+  blogCreate(req, res, next) {
+    blogsDB.save(req.body)
+      .then((blog) => {
+        res.json({
+          message: 'Blog Created',
+          data: { blog },
+        });
+      }).catch(err => next(err));
+  },
+
 };
 
