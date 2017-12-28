@@ -3,7 +3,9 @@ import React from 'react';
 const Blog  = props => {
 	return (
       <div className="blog">
-       <h1> This is a blog post. </h1>
+      <p className="blogs">
+       {props.title} {props.content} {props.username} {props.tagname}
+        </p>
        </div>
 		);
 };

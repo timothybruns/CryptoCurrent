@@ -10,21 +10,35 @@ class App extends Component {
     this.state = {
       tickerList: null,
       apiDataLoaded: false,
-      backendcall: null,
     }
   }
 
- componentDidMount () {
+  getBlogData() {
+    fetch('/api/blogs')
+    .then(res => res.json())
+    .then(res => {
+      console.log(res.data.blogs);
+      this.setState({
+        blogData: res.data.blogs,
+      });
+    }).catch(err => console.log(err));
+  }
+
+   getCoinData() {
    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=5')
      .then(res => res.json())
      .then(res => {
-      console.log(res)
        this.setState({
         tickerList: res,
         apiDataLoaded: true
        })
      })
      .catch(err => console.log(err))
+ }
+
+ componentDidMount() {
+   this.getCoinData(this.state.tickerList);
+   this.getBlogData(this.state.blogData);
  }
 
   render() {
@@ -34,7 +48,9 @@ class App extends Component {
 
         {this.state.apiDataLoaded ? (
          <div>
-           <Body tickerList={this.state.tickerList}/>
+           <Body tickerList={this.state.tickerList}
+                   blogData={this.state.blogData}
+           />
            <Footer />
            </div>
           ) : (
