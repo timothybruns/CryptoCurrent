@@ -49,5 +49,15 @@ module.exports = {
       .catch(err => next(err));
   },
 
+  blogDelete(req, res, next) {
+    blogsDB.destroy(req.params.id)
+      .then(() => {
+        res.status(202).json({
+          message: 'Blog deleted',
+        });
+      })
+      .catch(err => next(err));
+  },
+
 };
 

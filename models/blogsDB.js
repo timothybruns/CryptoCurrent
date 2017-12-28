@@ -37,4 +37,12 @@ module.exports = {
     `, blog);
   },
 
+  destroy(id) {
+    return db.none(`
+      DELETE
+      FROM blogs
+      WHERE id = $1
+    `, id);
+  },
+
 };
