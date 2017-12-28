@@ -9,9 +9,9 @@ const options = {
 const pgp = require('pg-promise')(options);
 
 const config = {
-  host:     process.env.DB_HOST || 'localhost',
-  port:     process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'crypto_blog_dev',
+  host:     process.env.DB_HOST,
+  port:     process.env.DB_PORT,
+  database: process.env.DB_NAME,
 };
 
 function setDatabase() {
