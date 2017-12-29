@@ -4,7 +4,7 @@ import React from 'react';
 export const Home = ({ blogs }) => {
   return blogs !== null ? (
     <section className="bloglist">
-      <p> In homeroute </p>
+      <p> In homeroute with Switch</p>
 
       {/* map through blogs and render all titles */}
 

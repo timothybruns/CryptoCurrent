@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Body from './components/Body';
 import Ticker from './components/Ticker';
-import { Home, About, Resources } from './pages';
+import { Home, BlogForm, About, Resources } from './pages';
 import './App.css';
 
 class App extends Component {
@@ -52,24 +52,33 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
         <div className="App">
           <Header />
           <Ticker
             tickerList={this.state.tickerList}
           />
-          <div className="body">
-            <Route
+          <main>
+            <nav className="navbar navbar-light">
+              <ul className="nav navbar-nav">
+                <li><Link to="/">Homes</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/resources">Resources</Link></li>
+              </ul>
+            </nav>
+            <Switch>
+              <Route
               exact path="/"
-              render={props => <Home {...props}
-                blogs={this.state.blogData} /> }
-            />
-            <Route path="/about" component={About} />
-            <Route path="/resources" component={Resources} />
-          </div>
+                render={props => <Home {...props}
+                  blogs={this.state.blogData} /> }
+              />
+              <Route path="/about" component={About} />
+              <Route path="/resources" component={Resources} />
+              <Route path="/create" component={BlogForm} />
+            </Switch>
+          </main>
+          <button><Link to="/create">Create Blog</Link></button>
           <Footer />
         </div>
-      </Router>
     );
   }
 }
