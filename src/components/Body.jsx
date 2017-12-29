@@ -1,3 +1,6 @@
+// DO NOT USE THESE
+
+/*
 import React from 'react';
 import Ticker from './Ticker';
 import Nav from './Nav';
@@ -26,3 +29,4 @@ const Body = props => {
 };
 
 export default Body;
+*/

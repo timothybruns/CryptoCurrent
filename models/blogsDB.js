@@ -8,7 +8,6 @@ module.exports = {
       SELECT *
       FROM blogs
       JOIN users ON users.id = blogs.user_id
-      JOIN tags ON tags.blog_id = blogs.id
       `);
   },
 
@@ -20,8 +19,6 @@ module.exports = {
       SELECT *
       FROM blogs
       JOIN users ON users.id = blogs.user_id
-      JOIN tags ON tags.blog_id = blogs.id
-      JOIN comments ON comments.blog_id = blogs.id
       WHERE blogs.id = $1
       `, id);
   },

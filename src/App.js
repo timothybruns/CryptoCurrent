@@ -4,7 +4,6 @@ import { Link, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
-import Body from './components/Body';
 import Ticker from './components/Ticker';
 import { Home, BlogForm, About, Resources } from './pages';
 import './App.css';
@@ -54,17 +53,11 @@ class App extends Component {
     return (
         <div className="App">
           <Header />
+          <Nav />
           <Ticker
             tickerList={this.state.tickerList}
           />
           <main>
-            <nav className="navbar navbar-light">
-              <ul className="nav navbar-nav">
-                <li><Link to="/">Homes</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/resources">Resources</Link></li>
-              </ul>
-            </nav>
             <Switch>
               <Route
               exact path="/"

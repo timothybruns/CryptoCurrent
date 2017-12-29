@@ -1,3 +1,6 @@
+// DO NOT USE THESE
+
+/*
 import React from 'react';
 import Blog from './Blog';
 
@@ -13,3 +16,4 @@ const BlogList  = props => {
 };
 
 export default BlogList;
+*/
