@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
+import Body from './components/Body';
 import { Home, About, Resources } from './pages';
 import './App.css';
 
@@ -56,10 +57,12 @@ class App extends Component {
           <div className="body">
             <Route
               exact path="/"
-              render={props => <Home {...props} blogs={this.state.blogData} />}
+              render={props => <Home {...props}
+                blogs={this.state.blogData}
+                tickerList={this.state.tickerList}/>}
             />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/resources" component={Resources} />
+            <Route path="/about" component={About} />
+            <Route path="/resources" component={Resources} />
           </div>
           <Footer />
         </div>
