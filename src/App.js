@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Body from './components/Body';
+import Ticker from './components/Ticker';
 import { Home, About, Resources } from './pages';
 import './App.css';
 
@@ -54,12 +55,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
+          <Ticker
+            tickerList={this.state.tickerList}
+          />
           <div className="body">
             <Route
               exact path="/"
               render={props => <Home {...props}
-                blogs={this.state.blogData}
-                tickerList={this.state.tickerList}/>}
+                blogs={this.state.blogData} /> }
             />
             <Route path="/about" component={About} />
             <Route path="/resources" component={Resources} />

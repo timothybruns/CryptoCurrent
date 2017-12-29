@@ -8,16 +8,6 @@ const Body = props => {
       <div className="body">
         <h1> Blog Posts </h1>
       <div>
-      {props.tickerList.map((ticker,index) => {
-        return (
-          <Ticker
-          name={ticker.name}
-          symbol={ticker.symbol}
-          price_usd={ticker.price_usd}
-          key={index}
-          />
-          );
-      })}
        {props.blogData.map((blog,index) => {
             return (
                   <BlogList
