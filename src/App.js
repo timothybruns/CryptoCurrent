@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Ticker from './components/Ticker';
+import Blog from './components/Blog';
 import { Home, BlogForm, About, Resources } from './pages';
 import './App.css';
 
@@ -24,7 +25,6 @@ class App extends Component {
     this.getCoinData(this.state.tickerList);
     this.getBlogData(this.state.blogData);
   }
-
 
   getBlogData() {
     fetch('/api/blogs')
@@ -49,6 +49,20 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  blogSubmit(method, event, data, id) {
+    event.preventDefault();
+    fetch(`/api/blogs/${id || ''}`, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data),
+    }).then(res => res.json())
+      .then(res => {
+        this.getBlogData();
+      });
+  }
+
   render() {
     return (
         <div className="App">
@@ -64,6 +78,7 @@ class App extends Component {
                 render={props => <Home {...props}
                   blogs={this.state.blogData} /> }
               />
+              <Route path="/blogs/:id" component={Blog} />
               <Route path="/about" component={About} />
               <Route path="/resources" component={Resources} />
               <Route path="/create" component={BlogForm} />
