@@ -1,12 +1,16 @@
 import React from 'react';
 
 
-const Ticker  = props => {
-	return (
+const Ticker = ({ tickerList }) => {
+	return tickerList !== null ? (
       <div className="ticker">
-       	<p className="coindata">{props.name}({props.symbol}) ${props.price_usd}</p>
+        {tickerList.map((ticker,index) => (
+          <p key={index}>{ticker.name} {ticker.symbol} {ticker.price_usd} </p>
+      ))}
       </div>
-	);
+      ) : (
+      <p> Loading ... </p>
+    );
 };
 
 export default Ticker;
