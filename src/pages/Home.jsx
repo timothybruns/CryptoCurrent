@@ -1,15 +1,15 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 export const Home = ({ blogs }) => {
   return blogs !== null ? (
     <section className="bloglist">
-      <p> In homeroute </p>
+      <p> In homeroute with Switch</p>
 
       {/* map through blogs and render all titles */}
 
       {blogs.map((blog, index) => (
-        <p key={index}>{blog.title}</p>
+        <p key={index}><Link to={`/blogs/${blog.id}`}>{blog.title}</Link></p>
       ))}
     </section>
 

@@ -54,6 +54,12 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use('/api/blogs', blogroutes);
 app.use('/api/users', userroutes);
 
+app.use('/api', (req, res) => {
+  res.status(200).json({
+    message: 'In server homeroute',
+  });
+});
+
 // catching illegal routes
 app.use('*', (req, res) => {
   res.status(400).json({

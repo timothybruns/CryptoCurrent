@@ -1,7 +1,6 @@
-import { Container } from './Container';
 import { Home } from './Home';
 import { About } from './About';
 import { Resources } from './Resources';
+import { BlogForm } from './BlogForm';
 
-
-export { Container, Home, About, Resources };
+export { BlogForm, Home, About, Resources };

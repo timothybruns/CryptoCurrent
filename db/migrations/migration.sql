@@ -20,17 +20,17 @@ CREATE TABLE blogs (
   user_id INT REFERENCES users(id)
 );
 
-CREATE TABLE tags (
-  id SERIAL PRIMARY KEY,
-  tagname VARCHAR(50) NOT NULL,
-  blog_id INT REFERENCES blogs(id)
-);
+-- CREATE TABLE tags (
+--   id SERIAL PRIMARY KEY,
+--   tagname VARCHAR(50) NOT NULL,
+--   blog_id INT REFERENCES blogs(id)
+-- );
 
-CREATE TABLE comments (
-  id SERIAL PRIMARY KEY,
-  comment VARCHAR(255),
-  blog_id INT REFERENCES blogs(id)
-);
+-- CREATE TABLE comments (
+--   id SERIAL PRIMARY KEY,
+--   comment VARCHAR(255),
+--   blog_id INT REFERENCES blogs(id)
+-- );
 
 
 
