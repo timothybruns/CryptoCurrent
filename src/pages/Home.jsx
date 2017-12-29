@@ -1,8 +1,14 @@
-import React from "react";
+import React from 'react';
 
-export const Home = (props) => {
-  return (
-    <section className="home">
-      <p>This is our home page!</p>
+export const Home = ({ blogs }) => {
+  return blogs !== null ? (
+    <section className="bloglist">
+      <p> In homeroute </p>
+      {blogs.map((blog, index) => (
+        <p key={index}>{blog.title}</p>
+      ))}
     </section>
-}
+  ) : (
+    <p>Loading...</p>
+  )
+};
