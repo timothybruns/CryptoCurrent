@@ -7,7 +7,7 @@ module.exports = {
     return db.many(`
       SELECT *
       FROM blogs
-      JOIN users ON users.id = blogs.user_id
+      ORDER BY id DESC
       `);
   },
 
