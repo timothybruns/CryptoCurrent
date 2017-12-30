@@ -18,9 +18,9 @@ class App extends Component {
       blogData: null,
       apiDataLoaded: false,
       shouldShowAddForm: false,
+      id: null,
     };
     this.blogSubmit = this.blogSubmit.bind(this);
-    this.showAddForm = this.showAddForm.bind(this);
   }
 
 
@@ -68,12 +68,6 @@ class App extends Component {
       });
   }
 
-  showAddForm() {
-    this.setState({
-      shouldShowAddForm: true,
-    });
-  }
-
   render() {
     return (
         <div className="App">
@@ -91,7 +85,12 @@ class App extends Component {
                   blogs={this.state.blogData}
                 />}
               />
-              <Route path="/blogs/:id" component={Blog}  />
+              <Route
+                path="/blogs/:id"
+                render={props => <Blog {...props}
+                  blogs={this.state.blogData}
+                />}
+              />
               <Route path="/about" component={About} />
               <Route path="/resources" component={Resources} />
               <Route
