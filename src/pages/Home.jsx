@@ -9,7 +9,7 @@ export const Home = ({ blogs }) => {
       {/* map through blogs and render all titles */}
 
       {blogs.map((blog, index) => (
-        <p key={index}><Link to={`/blogs/${blog.id}`}>{blog.title}</Link></p>
+        <p key={index}><Link ownid={blog.id} to={`/blogs/${blog.id}`}>{blog.title}</Link></p>
       ))}
     </section>
 
