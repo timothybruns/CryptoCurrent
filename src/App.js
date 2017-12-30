@@ -91,7 +91,7 @@ class App extends Component {
                   blogs={this.state.blogData}
                 />}
               />
-              <Route path="/blogs/:id" component={Blog} />
+              <Route path="/blogs/:id" component={Blog}  />
               <Route path="/about" component={About} />
               <Route path="/resources" component={Resources} />
               <Route
