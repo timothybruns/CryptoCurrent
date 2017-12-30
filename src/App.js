@@ -54,9 +54,11 @@ class App extends Component {
         <div className="App">
           <Header />
           <Nav />
+          <div className="ticker">
           <Ticker
             tickerList={this.state.tickerList}
           />
+          </div>
           <main>
             <Switch>
               <Route
@@ -69,7 +71,7 @@ class App extends Component {
               <Route path="/create" component={BlogForm} />
             </Switch>
           </main>
-          <button><Link to="/create">Create Blog</Link></button>
+          <button className="createButton"><Link to="/create">Create Blog</Link></button>
           <Footer />
         </div>
     );

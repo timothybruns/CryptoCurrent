@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const Home = ({ blogs }) => {
   return blogs !== null ? (
     <section className="bloglist">
-      <p> In homeroute with Switch</p>
+      <u><p> Blog List</p></u>
 
       {/* map through blogs and render all titles */}
 
