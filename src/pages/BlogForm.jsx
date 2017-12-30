@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 class BlogForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: props.blogs ? props.blogs.title : '',
-      content: props.blogs ? props.blogs.content : '',
+      title: '',
+      content: '',
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-handleInputChange(e) {
-  const name = e.target.name;
-  const val = e.target.value;
-  this.setState({
-    [name]: val,
-  });
-}
+  handleChange(event) {
+    this.setState({
+      title: event.target.title,
+      content: event.target.content,
+    });
+  }
 
-render() {
+
+  render() {
     return (
-      <div className="add">
-        <form className={this.props.isAdd ? 'addform' : 'editform'}
-          onSubmit={this.props.isAdd
-            ? e => this.props.blogSubmit('POST', e, this.state)
-            : e => this.props.blogSubmit('PUT', e, this.state, this.props.blogs.id)}>
-        <div className="form-subcontainer">
-            <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleInputChange} />
-            <input type="text" name="content" placeholder="Content" value={this.state.content} onChange={this.handleInputChange} />
-        </div>
-          <input type="submit" value={this.props.isAdd ? 'Add post' : 'Edit post'} />
-         </form>
-      </div>
+      <form onSubmit={this.props.blogSubmit}>
+        <label>
+          <input type="text" value={this.state.title} placeholder="title" onChange={this.handleChange} />
+          <input type="text" value={this.state.content} placeholder="content" onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
     );
   }
+
 }
 
 export default BlogForm;
+
+
+
+

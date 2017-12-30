@@ -6,7 +6,8 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Ticker from './components/Ticker';
 import Blog from './components/Blog';
-import { Home, BlogForm, About, Resources } from './pages';
+import { Home, About, Resources } from './pages';
+import BlogForm from './pages/BlogForm';
 import './App.css';
 
 class App extends Component {
@@ -16,8 +17,10 @@ class App extends Component {
       tickerList: null,
       blogData: null,
       apiDataLoaded: false,
+      shouldShowAddForm: false,
     };
-
+    this.blogSubmit = this.blogSubmit.bind(this);
+    this.showAddForm = this.showAddForm.bind(this);
   }
 
 
@@ -32,6 +35,7 @@ class App extends Component {
       .then((res) => {
         this.setState({
           blogData: res.data.blogs,
+          shouldShowAddForm: false,
         });
       })
       .catch(err => console.log(err));
@@ -44,6 +48,7 @@ class App extends Component {
         this.setState({
           tickerList: res,
           apiDataLoaded: true,
+          shouldShowAddForm: false,
         });
       })
       .catch(err => console.log(err));
@@ -52,15 +57,21 @@ class App extends Component {
   blogSubmit(method, event, data, id) {
     event.preventDefault();
     fetch(`/api/blogs/${id || ''}`, {
-      method: method,
+      method:  method,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     }).then(res => res.json())
       .then(res => {
         this.getBlogData();
       });
+  }
+
+  showAddForm() {
+    this.setState({
+      shouldShowAddForm: true,
+    });
   }
 
   render() {
@@ -74,14 +85,21 @@ class App extends Component {
           <main>
             <Switch>
               <Route
-              exact path="/"
+                exact
+                path="/"
                 render={props => <Home {...props}
-                  blogs={this.state.blogData} /> }
+                  blogs={this.state.blogData}
+                />}
               />
               <Route path="/blogs/:id" component={Blog} />
               <Route path="/about" component={About} />
               <Route path="/resources" component={Resources} />
-              <Route path="/create" component={BlogForm} />
+              <Route
+                path="/create"
+                render={props => <BlogForm {...props}
+                  blogSubmit={this.blogSubmit}
+                />}
+              />
             </Switch>
           </main>
           <button><Link to="/create">Create Blog</Link></button>
