@@ -54,10 +54,10 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  blogSubmit(method, event, data, id) {
+  blogSubmit(event, data) {
     event.preventDefault();
-    fetch(`/api/blogs/${id || ''}`, {
-      method:  method,
+    fetch('/api/blogs', {
+      method:  'POST',
       headers: {
         'Content-Type': 'application/json',
       },
