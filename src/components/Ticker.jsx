@@ -5,7 +5,7 @@ const Ticker = ({ tickerList }) => {
 	return tickerList !== null ? (
       <ul className="tickerInner">
         {tickerList.map((ticker,index) => (
-        <b><li key={index}>{ticker.name} {ticker.symbol} {ticker.price_usd} </li></b>
+        <b><li key={index}>{ticker.name} {ticker.symbol} <span className="price"> {ticker.price_usd} </span> </li></b>
       ))}
       </ul>
       ) : (

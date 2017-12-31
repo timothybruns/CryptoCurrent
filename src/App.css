@@ -17,6 +17,10 @@
   margin-left: 3cm;
 }
 
+.price {
+  color: green;
+}
+
 .submitTitle{
    width: 40%;
    padding-bottom: 10px;
@@ -51,7 +55,7 @@
 }
 
 .home {
-  
+
 }
 
 .resources {
@@ -91,7 +95,7 @@ section {
 }
 
 .header {
-  
+
 }
 
 .nav {
