@@ -70,8 +70,12 @@ class App extends Component {
   }
 
   deleteBlog(id) {
-    console.log(this.state.match)
-    fetch(`api/blogs/${id}`, {
+    console.log(window.location.origin);
+    const rootUrl = window.location.origin;
+    const pathUrl = `/api/blogs/${id}`;
+    const newUrl = rootUrl.concat(pathUrl);
+    // const newUrl = window.location.pathname.slice(0,1);
+    fetch(newUrl, {
       method: 'DELETE',
     }).then(res => res.json())
       .then(res => {
@@ -100,7 +104,7 @@ class App extends Component {
                 />}
               />
               <Route
-                path="/:id"
+                path="/blogs/:id"
                 render={props => <Blog {...props}
                   blogs={this.state.blogData}
                   deleteBlog={this.deleteBlog}

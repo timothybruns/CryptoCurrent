@@ -30,7 +30,7 @@ class Blog extends React.Component {
   }
 
   handleDelete(e) {
-    console.log(this.state.post[0].id);
+    // console.log(this.state.post[0].id);
     {this.props.deleteBlog(this.state.post[0].id)}
   }
 

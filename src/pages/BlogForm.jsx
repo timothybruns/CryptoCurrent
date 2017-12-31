@@ -43,6 +43,3 @@ class BlogForm extends Component {
 
 export default BlogForm;
 
-
-
-
