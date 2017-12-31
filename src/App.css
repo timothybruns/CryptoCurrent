@@ -5,9 +5,42 @@
 .ticker {
 	color: #228B22;
 	text-align: center;
-	font-family: Georgia;
-	display: inline;
+  font-family: Georgia;
+  font-size: 16px;
+	display: block;
 	position: center;  margin-top: 0cm;
+  float: left;
+  overflow: hidden;
+  text-decoration: none;
+  word-spacing: 10px;
+  list-style-type: none;
+  margin-left: 3cm;
+}
+
+.submitTitle{
+   width: 40%;
+   padding-bottom: 10px;
+}
+
+.submitPost {
+   width: 40%;
+   height: 120px;
+}
+
+.submitButton {
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: steelblue;
+}
+
+.tickerInner {
+  display: block;
+    color: black;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+    float: left;
+    list-style-type: none;
 }
 
 .about {
@@ -31,17 +64,30 @@
 }
 
 .bloglist {
-   font-family: Comic Sans MS;
+   font-family: Georgia;
    font-size: 18px;
    color: maroon;
+   display: block;
 }
+
+.blogList {
+  margin-top: 2cm;
+  font-family: Georgia;
+  font-size: 36px;
+}
+
+section {
+  text-align: center;
+}
+
+
 
 .body {
   background-color: steelblue;
 }
 
 .footer {
-  font-family: Comic Sans MS;
+  font-family: Georgia;
 }
 
 .header {
@@ -53,19 +99,38 @@
    float: left;
 }
 
-.ticker {
+#createTab {
+  margin-left: 20cm;
+  background-color: steelblue;
+  color: black;
+}
+
+.navbarInner {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+li {
     float: left;
-    word-spacing: 10px;
+    padding: 2px;
 }
 
-.createButton {
-	padding: 12px 28px;
-	background-color: steelblue;
-	font-family: Times New Roman;
-	font-size: 20px;
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 
+li a:hover {
+    background-color: #111;
+}
 
 
 

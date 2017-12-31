@@ -31,10 +31,11 @@ class BlogForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          <input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} />
-          <input type="text" name="content" value={this.state.content} placeholder="content" onChange={this.handleChange} />
+          <input className="submitTitle" type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} />
+          <br></br><input className="submitPost" type="text" name="content" value={this.state.content} placeholder="content" onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <br></br>
+        <input className="submitButton" type="submit" value="Submit" />
       </form>
     );
   }
