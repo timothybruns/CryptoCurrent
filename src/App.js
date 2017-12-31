@@ -135,7 +135,6 @@ class App extends Component {
               />
             </Switch>
           </main>
-          <button className="createButton"><Link to="/create">Create Blog</Link></button>
           <Footer />
         </div>
     );

@@ -3,11 +3,11 @@ import React from 'react';
 
 const Ticker = ({ tickerList }) => {
 	return tickerList !== null ? (
-      <div className="ticker">
+      <ul className="tickerInner">
         {tickerList.map((ticker,index) => (
-          <p key={index}>{ticker.name} {ticker.symbol} {ticker.price_usd} </p>
+        <b><li key={index}>{ticker.name} {ticker.symbol} {ticker.price_usd} </li></b>
       ))}
-      </div>
+      </ul>
       ) : (
       <p> Loading ... </p>
     );
