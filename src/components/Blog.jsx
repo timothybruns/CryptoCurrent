@@ -4,9 +4,16 @@ class Blog extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      post: [],
+      post:  [],
+      id: null,
+      editButtonClick: false,
+      title:   '',
+      content: '',
     };
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.showEditForm = this.showEditForm.bind(this);
   }
 
   // turn the url into string
@@ -26,6 +33,9 @@ class Blog extends React.Component {
     const post = posts.filter(post => post.id == url_id);
     this.setState({
       post: post,
+      id: post[0].id,
+      title: post[0].title,
+      content: post[0].content,
     });
   }
 
@@ -34,8 +44,29 @@ class Blog extends React.Component {
     {this.props.deleteBlog(this.state.post[0].id)}
   }
 
+  handleChange(e) {
+    const name = e.target.name;
+    const val = e.target.value;
+    this.setState({
+      [name]: val,
+    });
+  }
+
+  showEditForm() {
+    this.setState({
+      editButtonClick: true,
+    });
+  }
+
+  handleEdit(e) {
+    e.preventDefault();
+    {this.props.editBlog(e, this.state, this.state.id)}
+  }
+
   render() {
     return (
+      <div>
+      {this.state.editButtonClick == false ? (
       <div className="blog">
       {this.state.post.length > 0 &&
       <div>
@@ -43,8 +74,20 @@ class Blog extends React.Component {
         <h2>{this.state.post[0].content}</h2>
         <br/>
         <button className="delete" onClick={this.handleDelete}> Delete </button>
+        <button className="edit" onClick={this.showEditForm}> Edit </button>
       </div>
       }
+      </div>
+      ) : (
+      // edit form here
+      <div className="edit">
+        <form onSubmit={this.handleEdit}>
+          <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+          <input type="text" name="content" value={this.state.content} onChange={this.handleChange} />
+          <input type="submit" value="Edit" />
+        </form>
+      </div>
+      )}
       </div>
     );
   }

@@ -22,6 +22,7 @@ class App extends Component {
     };
     this.blogSubmit = this.blogSubmit.bind(this);
     this.deleteBlog = this.deleteBlog.bind(this);
+    this.editBlog = this.editBlog.bind(this);
   }
 
 
@@ -83,6 +84,19 @@ class App extends Component {
       });
   }
 
+  editBlog(e, data, id) {
+    e.preventDefault();
+    const rootUrl = window.location.origin;
+    const pathUrl = `/api/blogs/${id}`;
+    const newUrl = rootUrl.concat(pathUrl);
+    fetch(newUrl, {
+      method: 'PUT',
+    }).then(res => res.json())
+      .then(res => {
+        this.getBlogData();
+      });
+  }
+
   render() {
     return (
         <div className="App">
@@ -108,6 +122,7 @@ class App extends Component {
                 render={props => <Blog {...props}
                   blogs={this.state.blogData}
                   deleteBlog={this.deleteBlog}
+                  editBlog={this.editBlog}
                 />}
               />
               <Route path="/about" component={About} />

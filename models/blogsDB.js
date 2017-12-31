@@ -27,7 +27,7 @@ module.exports = {
     return db.one(`
       UPDATE blogs
       SET
-      title = $/title/,
+      title = $/title/
       content = $/content/
       WHERE id = $/id/
       RETURNING *
