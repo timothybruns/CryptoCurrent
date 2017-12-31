@@ -21,6 +21,7 @@ class App extends Component {
       id: null,
     };
     this.blogSubmit = this.blogSubmit.bind(this);
+    this.deleteBlog = this.deleteBlog.bind(this);
   }
 
 
@@ -68,6 +69,16 @@ class App extends Component {
       });
   }
 
+  deleteBlog(id) {
+    console.log(this.state.match)
+    fetch(`api/blogs/${id}`, {
+      method: 'DELETE',
+    }).then(res => res.json())
+      .then(res => {
+        this.getBlogData();
+      });
+  }
+
   render() {
     return (
         <div className="App">
@@ -85,12 +96,14 @@ class App extends Component {
                 path="/"
                 render={props => <Home {...props}
                   blogs={this.state.blogData}
+
                 />}
               />
               <Route
-                path="/blogs/:id"
+                path="/:id"
                 render={props => <Blog {...props}
                   blogs={this.state.blogData}
+                  deleteBlog={this.deleteBlog}
                 />}
               />
               <Route path="/about" component={About} />
