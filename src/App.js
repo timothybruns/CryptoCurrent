@@ -21,6 +21,8 @@ class App extends Component {
       id: null,
     };
     this.blogSubmit = this.blogSubmit.bind(this);
+    this.deleteBlog = this.deleteBlog.bind(this);
+    this.editBlog = this.editBlog.bind(this);
   }
 
 
@@ -68,6 +70,33 @@ class App extends Component {
       });
   }
 
+  deleteBlog(id) {
+    console.log(window.location.origin);
+    const rootUrl = window.location.origin;
+    const pathUrl = `/api/blogs/${id}`;
+    const newUrl = rootUrl.concat(pathUrl);
+    // const newUrl = window.location.pathname.slice(0,1);
+    fetch(newUrl, {
+      method: 'DELETE',
+    }).then(res => res.json())
+      .then(res => {
+        this.getBlogData();
+      });
+  }
+
+  editBlog(e, data, id) {
+    e.preventDefault();
+    const rootUrl = window.location.origin;
+    const pathUrl = `/api/blogs/${id}`;
+    const newUrl = rootUrl.concat(pathUrl);
+    fetch(newUrl, {
+      method: 'PUT',
+    }).then(res => res.json())
+      .then(res => {
+        this.getBlogData();
+      });
+  }
+
   render() {
     return (
         <div className="App">
@@ -85,12 +114,15 @@ class App extends Component {
                 path="/"
                 render={props => <Home {...props}
                   blogs={this.state.blogData}
+
                 />}
               />
               <Route
                 path="/blogs/:id"
                 render={props => <Blog {...props}
                   blogs={this.state.blogData}
+                  deleteBlog={this.deleteBlog}
+                  editBlog={this.editBlog}
                 />}
               />
               <Route path="/about" component={About} />
