@@ -1,4 +1,4 @@
-\c crypto_blog_dev
+
 
 INSERT INTO users(username, password)
   VALUES
