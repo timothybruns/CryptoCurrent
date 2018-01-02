@@ -2,6 +2,28 @@
   text-align: center;
   background-color: #FFE4C4;
 }
+
+html {
+  background-color: #FFE4C4;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+}
+
+#blogE {
+  font-size: 20px;
+}
+
+#blogE:hover {
+  background-color: orange;
+  display: inline;
+  text-decoration: underline;
+  font-weight: 10px
+
+}
+
 .ticker {
 	color: #228B22;
 	text-align: center;
@@ -15,6 +37,11 @@
   word-spacing: 10px;
   list-style-type: none;
   margin-left: 3cm;
+}
+
+.footer {
+  margin-top: 100px;
+
 }
 
 .price {
@@ -75,7 +102,7 @@
 }
 
 .blogList {
-  margin-top: 2cm;
+  margin-top: 3cm;
   font-family: Georgia;
   font-size: 36px;
 }
@@ -115,6 +142,7 @@ section {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    font-size: 18px;
 
 }
 
