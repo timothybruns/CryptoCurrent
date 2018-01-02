@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export const Home = ({ blogs }) => {
   return blogs !== null ? (
-    <section className="bloglist">
+    <section className="blogTitle">
       <u><p className="blogList"> Blog Index</p></u>
 
       {/* map through blogs and render all titles */}
