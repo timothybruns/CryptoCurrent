@@ -25,18 +25,18 @@
 
 * CRUD - our react/express CRUD homework was a challenge - implementing this correctly on the backend and having it work on the React front-end is likely the most important feature of the project.
 
-## Technologies Used
+## Technologies and Dependencies Used
 
 * React.js, React Router
 * Javascript/Node/Express
-* 3rd Party API - Coin Market Cap
+* 3rd Party API - Coin Market Cap, see link in Works Cited section
 * MVC Pattern
 * HTML/CSS
 * PSQL & pg-promise
 * Github for merging feature branches
 * Heroku for online deployment
 * Webpack 
-* See package.json file for list of all dependencies used
+* See package.json file for list of all dependencies and node modules used (https://git.generalassemb.ly/P3-Group-3/Crypto-Blog/blob/master/package.json)
 
 ## Wireframes & User Stories
 
