@@ -71,7 +71,6 @@ class App extends Component {
   }
 
   deleteBlog(id) {
-    console.log(window.location.origin);
     const rootUrl = window.location.origin;
     const pathUrl = `/api/blogs/${id}`;
     const newUrl = rootUrl.concat(pathUrl);

@@ -35,7 +35,6 @@ module.exports = {
         return blog.blogUpdate({
           title:   req.body.title,
           content: req.body.content,
-          // user_id: req.body.user_id,
         });
       })
       .then((blog) => {
