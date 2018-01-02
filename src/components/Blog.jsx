@@ -81,7 +81,7 @@ class Blog extends React.Component {
         {this.state.editButtonClick == false ? (
             <div className="blog">
               {this.state.post.length > 0 &&
-                <div>
+                <div className="postTitle">
                   <h1>{this.state.post[0].title}</h1>
                   <h2>{this.state.post[0].content}</h2>
                   <br />
