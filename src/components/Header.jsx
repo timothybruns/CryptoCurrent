@@ -4,7 +4,7 @@ import '../App.js';
 const Header  = props => {
 	return (
       <div className="header">
-       <h1 className="blogWelcome"> Welcome to the Crypto Blog </h1>
+       <h1 className="blogWelcome"> CryptoCurrent</h1>
        </div>
 		);
 };
