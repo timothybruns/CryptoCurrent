@@ -2,6 +2,28 @@
   text-align: center;
   background-color: #FFE4C4;
 }
+
+html {
+  background-color: #FFE4C4;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+}
+
+#blogE {
+  font-size: 20px;
+}
+
+#blogE:hover {
+  background-color: orange;
+  display: inline;
+  text-decoration: underline;
+  font-weight: 10px
+
+}
+
 .ticker {
 	color: #228B22;
 	text-align: center;
@@ -15,6 +37,11 @@
   word-spacing: 10px;
   list-style-type: none;
   margin-left: 3cm;
+}
+
+.footer {
+  margin-top: 100px;
+
 }
 
 .price {
@@ -64,7 +91,7 @@
 }
 
 .blog {
-
+  
 }
 
 .bloglist {
@@ -75,8 +102,8 @@
 }
 
 .blogList {
-  margin-top: 2cm;
-  font-family: Georgia;
+  margin-top: 3cm;
+  font-family: Helvetica;
   font-size: 36px;
 }
 
@@ -91,7 +118,7 @@ section {
 }
 
 .footer {
-  font-family: Georgia;
+  font-family: Helvetica;
 }
 
 .header {
@@ -115,6 +142,7 @@ section {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    font-size: 18px;
 
 }
 
@@ -133,10 +161,26 @@ li a {
 
 
 li a:hover {
-    background-color: #111;
+    background-color: #FF8C00;
 }
 
+.postTitle {
+  margin-top: 3cm;
+}
 
+.blogWelcome {
+  font-family: Helvetica;
+  font-size: 40px;
+}
+
+.editName {
+  width: 40%;
+}
+
+.editContent {
+  width: 40%;
+   height: 120px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

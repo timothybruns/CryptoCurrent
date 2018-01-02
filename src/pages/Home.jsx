@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Home component is stateless function that maps thru all blog posts and displays title as the link to read one blog post
+
 export const Home = ({ blogs }) => {
   return blogs !== null ? (
     <section className="bloglist">
@@ -9,7 +11,7 @@ export const Home = ({ blogs }) => {
       {/* map through blogs and render all titles */}
 
       {blogs.map((blog, index) => (
-        <p key={index}><Link ownid={blog.id} to={`/blogs/${blog.id}`}>{blog.title}</Link></p>
+        <p id="blogE" key={index}><Link ownid={blog.id} to={`/blogs/${blog.id}`}>{blog.title}</Link></p>
       ))}
     </section>
 

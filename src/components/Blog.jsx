@@ -41,13 +41,17 @@ class Blog extends React.Component {
     });
   }
 
+  // calls the props function from app.js and pass the blog id as an argument
+
   handleDelete(e) {
-    // console.log(this.state.post[0].id);
+    e.preventDefault();
     {this.props.deleteBlog(this.state.post[0].id)}
     this.setState({
       deleted: true,
     })
   }
+
+  // set the value of the form into the state
 
   handleChange(e) {
     const name = e.target.name;
@@ -57,17 +61,20 @@ class Blog extends React.Component {
     });
   }
 
+  // hide the blog details and show the edit form
+
   showEditForm() {
     this.setState({
       editButtonClick: true,
     });
   }
 
+  // take props from app.js to pass down editBlog method, passing in the event, state, and blog id
+
   handleEdit(e) {
     e.preventDefault();
-    {this.props.editBlog(e, this.state, this.state.id)}
+      {this.props.editBlog(e, this.state, this.state.id)}
   }
-
 
   // show blog detail, with conditional rendering based on which button clicked
   render() {
@@ -93,18 +100,16 @@ class Blog extends React.Component {
             <Redirect to="/" />
           )}
           </div>
+
       ) : (
 
       // edit form here
         <div className="edit">
           <form onSubmit={this.handleEdit}>
-            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-            <input
-              type="text"
-              name="content"
-              value={this.state.content}
-              onChange={this.handleChange}
-            />
+            <input className="submitTitle" type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+            <br />
+            <input className="submitPost" type="text" name="content" value={this.state.content} onChange={this.handleChange} />
+            <br />
             <input type="submit" value="Edit" />
           </form>
         </div>
