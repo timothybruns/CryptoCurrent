@@ -35,8 +35,8 @@ class BlogForm extends Component {
             <br/>
           <input className="submitPost" type="text" name="content" value={this.state.content} placeholder="content" onChange={this.handleChange} />
         </label>
-            <br/>
-        <input className="submitButton" type="submit" value="Submit" />
+        <br></br>
+        <input className="submitButton" type="submit" value="Submit" /> //
       </form>
     );
   }
