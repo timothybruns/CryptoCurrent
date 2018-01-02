@@ -74,6 +74,8 @@ class Blog extends React.Component {
     return (
       <div>
         {this.state.editButtonClick === false ? (
+
+          // this checks for condition of deleted button clicked or not
           <div>
           {this.state.deleted === false ? (
           <div className="blog">
