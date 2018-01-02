@@ -16,7 +16,7 @@ CREATE TABLE users (
 CREATE TABLE blogs (
   id SERIAL PRIMARY KEY,
   title VARCHAR(100),
-  content VARCHAR(255),
+  content VARCHAR(8000),
   user_id INT REFERENCES users(id)
 );
 
