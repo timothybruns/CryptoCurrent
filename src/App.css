@@ -91,7 +91,7 @@ a {
 }
 
 .blog {
-
+  
 }
 
 .bloglist {
@@ -103,7 +103,7 @@ a {
 
 .blogList {
   margin-top: 3cm;
-  font-family: Georgia;
+  font-family: Helvetica;
   font-size: 36px;
 }
 
@@ -118,7 +118,7 @@ section {
 }
 
 .footer {
-  font-family: Georgia;
+  font-family: Helvetica;
 }
 
 .header {
@@ -161,10 +161,26 @@ li a {
 
 
 li a:hover {
-    background-color: #111;
+    background-color: #FF8C00;
 }
 
+.postTitle {
+  margin-top: 3cm;
+}
 
+.blogWelcome {
+  font-family: Helvetica;
+  font-size: 40px;
+}
+
+.editName {
+  width: 40%;
+}
+
+.editContent {
+  width: 40%;
+   height: 120px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

@@ -69,10 +69,9 @@ class Blog extends React.Component {
       {this.state.editButtonClick == false ? (
       <div className="blog">
       {this.state.post.length > 0 &&
-      <div>
+      <div className="postTitle">
         <h1>{this.state.post[0].title}</h1>
         <h2>{this.state.post[0].content}</h2>
-        <br/>
         <button className="delete" onClick={this.handleDelete}> Delete </button>
         <button className="edit" onClick={this.showEditForm}> Edit </button>
       </div>
@@ -82,8 +81,10 @@ class Blog extends React.Component {
       // edit form here
       <div className="edit">
         <form onSubmit={this.handleEdit}>
-          <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-          <input type="text" name="content" value={this.state.content} onChange={this.handleChange} />
+          <input className="editName" type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+          <br></br>
+          <input className="editContent" type="text" name="content" value={this.state.content} onChange={this.handleChange} />
+          <br></br>
           <input type="submit" value="Edit" />
         </form>
       </div>
