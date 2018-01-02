@@ -79,7 +79,6 @@ class App extends Component {
   // create a new url so we could use fetch to call in our datq correctly
 
   deleteBlog(id) {
-    console.log(window.location.origin);
     const rootUrl = window.location.origin;
     const pathUrl = `/api/blogs/${id}`;
     const newUrl = rootUrl.concat(pathUrl);

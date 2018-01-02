@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class BlogForm extends Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class BlogForm extends Component {
       title:   '',
       content: '',
       user_id: 1,
+      submitButtonClicked: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,12 +25,16 @@ class BlogForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     {this.props.blogSubmit(e, this.state)}
-    console.log(this.state);
+    this.setState({
+      submitButtonClicked: true,
+    });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div>
+      {this.state.submitButtonClicked == false ? (
+        <form onSubmit={this.handleSubmit}>
         <label>
           <input className="submitTitle" type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} />
             <br/>
@@ -38,6 +43,10 @@ class BlogForm extends Component {
         <br></br>
         <input className="submitButton" type="submit" value="Submit" /> //
       </form>
+      ) : (
+      <Redirect to="/" />
+      )}
+      </div>
     );
   }
 
