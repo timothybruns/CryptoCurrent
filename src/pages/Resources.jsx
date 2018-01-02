@@ -4,7 +4,7 @@ export const Resources = () => {
   return (
     <section className="resources">
       <u><h1> Crypto Resources </h1></u>
-     <div> 
+     <div>
      <div>
      <a href="https://coinmarketcap.com/">CoinMarketCap</a>
      <p>A site with every existing cryptocurrency and its current price.</p>

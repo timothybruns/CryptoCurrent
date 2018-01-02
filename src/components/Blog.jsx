@@ -39,10 +39,14 @@ class Blog extends React.Component {
     });
   }
 
+  // calls the props function from app.js and pass the blog id as an argument
+
   handleDelete(e) {
-    // console.log(this.state.post[0].id);
+    e.preventDefault();
     {this.props.deleteBlog(this.state.post[0].id)}
   }
+
+  // set the value of the form into the state
 
   handleChange(e) {
     const name = e.target.name;
@@ -52,45 +56,53 @@ class Blog extends React.Component {
     });
   }
 
+  // hide the blog details and show the edit form
+
   showEditForm() {
     this.setState({
       editButtonClick: true,
     });
   }
 
+  // take props from app.js to pass down editBlog method, passing in the event, state, and blog id
+
   handleEdit(e) {
     e.preventDefault();
-    {this.props.editBlog(e, this.state, this.state.id)}
+      {this.props.editBlog(e, this.state, this.state.id)}
   }
+
+
+  // renders blog data when clicked into from the home route
+  // if edit button is clicked, show the edit form, otherwise just show the blog title and content
 
   render() {
     return (
       <div>
-      {this.state.editButtonClick == false ? (
-      <div className="blog">
-      {this.state.post.length > 0 &&
-      <div>
-        <h1>{this.state.post[0].title}</h1>
-        <h2>{this.state.post[0].content}</h2>
-        <br/>
-        <button className="delete" onClick={this.handleDelete}> Delete </button>
-        <button className="edit" onClick={this.showEditForm}> Edit </button>
-      </div>
-      }
-      </div>
+        {this.state.editButtonClick == false ? (
+            <div className="blog">
+              {this.state.post.length > 0 &&
+                <div>
+                  <h1>{this.state.post[0].title}</h1>
+                  <h2>{this.state.post[0].content}</h2>
+                  <br />
+                  <button className="delete" onClick={this.handleDelete}> Delete </button>
+                  <button className="edit" onClick={this.showEditForm}> Edit </button>
+                </div>
+          }
+            </div>
       ) : (
       // edit form here
-      <div className="edit">
-        <form onSubmit={this.handleEdit}>
-          <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-          <input type="text" name="content" value={this.state.content} onChange={this.handleChange} />
-          <input type="submit" value="Edit" />
-        </form>
-      </div>
+        <div className="edit">
+          <form onSubmit={this.handleEdit}>
+            <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+            <input type="text" name="content" value={this.state.content} onChange={this.handleChange} />
+            <input type="submit" value="Edit" />
+          </form>
+        </div>
       )}
       </div>
     );
   }
-};
+}
 
 export default Blog;

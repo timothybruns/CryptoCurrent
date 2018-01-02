@@ -30,6 +30,7 @@ module.exports = {
   },
 
   blogUpdate(req, res, next) {
+    console.log(req)
     blogsDB.findOne(req.params.id)
       .then((blog) => {
         return blog.blogUpdate({
