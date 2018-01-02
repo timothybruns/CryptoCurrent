@@ -96,7 +96,7 @@ class Blog extends React.Component {
           <form onSubmit={this.handleEdit}>
             <input className="submitTitle" type="text" name="title" value={this.state.title} onChange={this.handleChange} />
             <br />
-            <input className="" type="text" name="content" value={this.state.content} onChange={this.handleChange} />
+            <input className="submitPost" type="text" name="content" value={this.state.content} onChange={this.handleChange} />
             <br />
             <input type="submit" value="Edit" />
           </form>
