@@ -32,7 +32,8 @@ class BlogForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           <input className="submitTitle" type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} />
-          <br></br><input className="submitPost" type="text" name="content" value={this.state.content} placeholder="content" onChange={this.handleChange} />
+            <br/>
+          <input className="submitPost" type="text" name="content" value={this.state.content} placeholder="content" onChange={this.handleChange} />
         </label>
         <br></br>
         <input className="submitButton" type="submit" value="Submit" /> //
