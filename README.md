@@ -43,7 +43,7 @@
 * Wireframes: https://git.generalassemb.ly/P3-Group-3/Crypto-Blog/tree/master/assets
 * User Stories: https://git.generalassemb.ly/P3-Group-3/Crypto-Blog/projects
 
-## Team Wiki with Meeting Notes:
+## Team Wiki with Meeting Notes
 
 * https://git.generalassemb.ly/P3-Group-3/Crypto-Blog/wiki
 
@@ -59,7 +59,7 @@
 * Never push broken code to master
 * Review pull request as group
 * Try to pair-program through the major features of the app
-* Never work in the master unless debuggin with the team
+* Never work in the master unless debugging with the team
 * Debug using testing branch, and delete when completed
 * Take notes when we hold "team meetings", record progress as we go
 * Be on time for agreed-upon meetings
@@ -77,7 +77,7 @@
 ## Sources Cited
 
 * Regex: https://stackoverflow.com/questions/1043619/get-numbers-from-string-with-regex
-    * Also used Tim's roommate Zac Messinger for help on this method
+    * Also used Tim's roommate, Zac Messinger, for help on this 
 * Styling inspriation: http://cryptocurrencyfacts.com/blog/
 * React Router redirect: https://www.sitepoint.com/react-router-v4-complete-guide/
 * React forms: https://reactjs.org/docs/forms.html
@@ -90,4 +90,5 @@
     * https://git.generalassemb.ly/wdi-nyc-hamilton/full-crud-express-mvc-movies
 * Coin Market Cap API: https://coinmarketcap.com/api/
 * Jason Seminara for webpack creation
+* Kate Shishkina for Heroku deployment
 
