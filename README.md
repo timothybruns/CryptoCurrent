@@ -1,5 +1,9 @@
 # Project 3 Crypto Blog
 
+## Link to deployed application on Heroku
+
+* https://crytocurrent.herokuapp.com/
+
 ## Brainstorm/Initial Thoughts
 
 * A public blog/social hub that displays blog posts created by users
